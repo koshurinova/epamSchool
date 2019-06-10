@@ -2,4 +2,7 @@
     <item name='org.testng.annotations.AfterMethod'>
         <annotation name='java.lang.Deprecated'/>
     </item>
+    <item name='org.testng.annotations.Test'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
 </root>

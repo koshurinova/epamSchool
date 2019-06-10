@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite1" verbose="1" parallel="classes" thread-count="3">
-<test name="test1" >
-<parameter name="baseUrl" value="http://localhost/wordpress/wp-login.php"/>
-<parameter name="adminLogin" value="admin"/>
-<parameter name="adminPass" value="secret"/>
-<classes>
-<!--<class name="Homework1"/>-->
-<!--<class name="testsWP.LoginTest" />-->
-<class name="testsWP.TestBase" />
+<suite name="Suite"  >
+    <parameter name="login" value="admin" />
+    <parameter name="password" value="secret" />
+    <test name="Test">
 
-</classes>
-</test>
+        <classes>
+            <class name="testsWP.LoginTest"/>
+            <class name="testsWP.PostTest"/>
+        </classes>
+    </test>
 </suite>

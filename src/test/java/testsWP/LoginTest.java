@@ -1,50 +1,42 @@
 package testsWP;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import org.testng.Assert;
 import org.testng.annotations.*;
 
 import pages.wordpress.BasePage;
+import org.testng.annotations.Test;
+import pages.wordpress.HomePage;
 import pages.wordpress.LoginPage;
 
 
-public class LoginTest extends BasePage {
+public class LoginTest extends testsWP.TestBase {
 
-//    protected static LoginPage loginPage;
+//    String login = "admin";
+//    String password = "secret";
+    private static final By HelloNick=By.xpath("//li[@id='wp-admin-bar-my-account' and contains(@class, 'menupop')]/a[contains(@class, 'ab-item')]");
 
-    public LoginTest(WebDriver driver) {
-        super(driver);
+@Parameters({"login", "password"})
+@Test
+
+public void loginSuccsess(String login, String password){
+    System.out.println("Invoked testString " + login);
+    HomePage homepage = new HomePage(driver);
+    homepage.goToMainPage()
+            .goToLoginPage()
+            .loginEnter(login, password);
+
+    Assert.assertEquals(driver.findElement(HelloNick).getText(), "Привет, "+login);
+
+
+
     }
 
 
-//    public LoginTest(WebDriver driver) {
-//        super(driver);
-//    }
 
-@Test
-public void Proba(){
-    System.out.println("текст в тесте");
-}
-
-
-//    @BeforeSuite
-//    public void precondition() {
-//        init();
-//
-//    }
-//
-//    @Test //потом перенести в TestBase или прекондишн
-//
-//    public void authorizationTest() {
-//        loginPage.login();
-//        Assert.assertEquals(driver.findElement(By.xpath("//li[@id='wp-admin-bar-my-account' and contains(@class, 'menupop')]/a[contains(@class, 'ab-item')]")).getText(), "Привет, admin");
-//    }
-//
-//    @AfterSuite
-//    public void postcondition() {
-//        driver.quit();
-//    }
 }
 
 
